@@ -55,6 +55,16 @@ public class User implements ModelEntity {
 
     private String[] user_permissions;
 
+    private String[] system_roles;
+
+    public String[] getSystem_roles() {
+        return system_roles;
+    }
+
+    public void setSystem_roles(String[] system_roles) {
+        this.system_roles = system_roles;
+    }
+
     public String getId() {
         return id;
     }

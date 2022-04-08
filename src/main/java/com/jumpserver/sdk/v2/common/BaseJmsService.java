@@ -6,6 +6,7 @@ import com.jumpserver.sdk.v2.exceptions.JmsException;
 import com.jumpserver.sdk.v2.httpclient.executor.HttpExecutor;
 import com.jumpserver.sdk.v2.httpclient.request.HttpRequest;
 import com.jumpserver.sdk.v2.httpclient.response.HttpResponse;
+import com.jumpserver.sdk.v2.model.User;
 import com.jumpserver.sdk.v2.model.entity.ModelEntity;
 import org.apache.commons.collections.CollectionUtils;
 
@@ -52,6 +53,11 @@ public class BaseJmsService {
 
     protected <R> Invocation<ActionResponse> deleteWithResponse(String... path) {
         return builder(ActionResponse.class, path, HttpMethod.DELETE);
+    }
+
+
+    protected <R> Invocation<R> removeWithResponse(Class<R> returnType, String... path) {
+        return builder(returnType, path, HttpMethod.POST);
     }
 
     protected <R> Invocation<R> head(Class<R> returnType, String... path) {

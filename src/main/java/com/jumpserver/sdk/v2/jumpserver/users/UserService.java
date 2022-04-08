@@ -20,6 +20,10 @@ public interface UserService {
 
     ActionResponse delete(String userId);
 
+    User bulkRemove(User user);
+
+    User removeUser(String userId, User user);
+
     ActionResponse changePassword(String userId, String password);
 
     List<UserGroup> userGroups();

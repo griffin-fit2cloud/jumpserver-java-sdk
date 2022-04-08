@@ -39,5 +39,6 @@ public class CommonBeforeTest {
         } else {
             os = credentials.header(ClientConstants.X_JMS_ORG, orgId).authenticate();
         }
+        System.out.println(os);
     }
 }

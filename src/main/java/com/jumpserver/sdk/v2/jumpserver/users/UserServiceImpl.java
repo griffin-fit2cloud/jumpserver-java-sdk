@@ -38,6 +38,14 @@ public class UserServiceImpl extends BaseJmsService implements UserService {
         return deleteWithResponse(ClientConstants.USERS, userId, "/").execute();
     }
 
+    public User bulkRemove(User user) {
+        return removeWithResponse(User.class, ClientConstants.USERS, "remove", "/").json(JSON.toJSONString(user)).execute();
+    }
+
+    public User removeUser(String userId, User user) {
+        return removeWithResponse(User.class, ClientConstants.USERS, userId+"/remove", "/").json(JSON.toJSONString(user)).execute();
+    }
+
     @Override
     public User update(User user) {
         checkNotNull(user);

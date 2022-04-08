@@ -132,4 +132,19 @@ public class JmsUserServiceTest extends CommonBeforeTest {
         System.out.println(delete.toString());
     }
 
+    @Test
+    public void removeUsers() {
+        User user = new User();
+        User delete = os.users().bulkRemove(user);
+        System.out.println(delete);
+    }
+
+    @Test
+    public void removeUser() {
+        User user = new User();
+        String userId = "c29616dc-0e69-4b01-8862-c82731f6ceb7";
+        User delete = os.users().removeUser(userId, user);
+        System.out.println(delete);
+    }
+
 }
