@@ -2,6 +2,7 @@ package com.jumpserver.sdk.v2.jumpserver.org;
 
 import com.jumpserver.sdk.v2.common.ActionResponse;
 import com.jumpserver.sdk.v2.model.Org;
+import com.jumpserver.sdk.v2.model.OrgRoleBinding;
 import com.jumpserver.sdk.v2.model.OrgUsers;
 import com.jumpserver.sdk.v2.model.User;
 
@@ -30,5 +31,8 @@ public interface OrgService {
     OrgUsers createOrgAdmins(OrgUsers orgusers);
 
     ActionResponse deleteOrgAdmins(String orgId,String userId);
+
+    OrgRoleBinding invitationOrgRole(OrgRoleBinding orgRoleBinding);
+
 
 }

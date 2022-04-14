@@ -17,7 +17,7 @@ public final class ClientConstants {
     public static final String USERS = BASE_URL + "/users/users/";
     public static final String USERGROUPS = BASE_URL + "/users/groups/";
     public static final String USER_PASSWORD_RESET = BASE_URL + "/users/users/{id}/password/";
-
+    public static final String INVITEUSER = BASE_URL + "/users/users/invite/";
     // assets
     public static final String NODES = BASE_URL + "/assets/nodes/";
     public static final String NODES_ASSETS = BASE_URL + "/assets/nodes/{id}/assets/";
@@ -28,6 +28,7 @@ public final class ClientConstants {
     public static final String ORG = BASE_URL + "/orgs/orgs/";
     public static final String ORGADMINS = BASE_URL + "/orgs/orgs/{org_id}/membership/admins/";
     public static final String ORGUSERS = BASE_URL + "/orgs/orgs/{org_id}/membership/users/";
+    public static final String INVITATIONORGUSER = BASE_URL + "/rbac/org-role-bindings/";
 
     // nodes children
     public static final String NODES_ID_CHILDREN = BASE_URL + "/assets/nodes/{id}/children/";

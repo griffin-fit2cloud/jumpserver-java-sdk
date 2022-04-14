@@ -5,6 +5,7 @@ import com.jumpserver.sdk.v2.common.ActionResponse;
 import com.jumpserver.sdk.v2.common.BaseJmsService;
 import com.jumpserver.sdk.v2.common.ClientConstants;
 import com.jumpserver.sdk.v2.model.Org;
+import com.jumpserver.sdk.v2.model.OrgRoleBinding;
 import com.jumpserver.sdk.v2.model.OrgUsers;
 
 import java.util.List;
@@ -84,6 +85,12 @@ public class OrgServiceImpl extends BaseJmsService implements OrgService {
         checkNotNull(userId);
         String url = ClientConstants.ORGADMINS.replace("{org_id}", orgId);
         return deleteWithResponse(url, userId, "/").execute();
+    }
+
+    @Override
+    public OrgRoleBinding invitationOrgRole(OrgRoleBinding orgRoleBinding) {
+        checkNotNull(orgRoleBinding);
+        return post(OrgRoleBinding.class, ClientConstants.INVITATIONORGUSER).json(JSON.toJSONString(orgRoleBinding)).execute();
     }
 
 }

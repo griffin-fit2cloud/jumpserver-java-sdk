@@ -3,6 +3,7 @@ package com.jumpserver.sdk.v2.model;
 import com.jumpserver.sdk.v2.model.entity.ModelEntity;
 
 import java.util.Date;
+import java.util.List;
 
 public class User implements ModelEntity {
     private String id;
@@ -56,6 +57,16 @@ public class User implements ModelEntity {
     private String[] user_permissions;
 
     private String[] system_roles;
+
+    private List<String> org_roles;
+
+    public List<String> getOrg_roles() {
+        return org_roles;
+    }
+
+    public void setOrg_roles(List<String> org_roles) {
+        this.org_roles = org_roles;
+    }
 
     public String[] getSystem_roles() {
         return system_roles;

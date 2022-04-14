@@ -2,6 +2,7 @@ package jms;
 
 import com.jumpserver.sdk.v2.common.ActionResponse;
 import com.jumpserver.sdk.v2.model.Org;
+import com.jumpserver.sdk.v2.model.OrgRoleBinding;
 import com.jumpserver.sdk.v2.model.OrgUsers;
 import org.junit.Test;
 
@@ -12,8 +13,8 @@ import java.util.List;
  */
 public class JmsOrgServiceTest extends CommonBeforeTest{
 
-    private String orgIdTest = "48afff20-32ce-43b7-8a13-5cd750acf989";
-    private  String userId = "415041b3-650c-49fe-adef-d8e36d54844e";
+    private String orgIdTest = "ad494a24-fbc5-36d4-8df8-38bc44094996";
+    private  String userId = "570cd13a-84dd-4710-9385-99ea3ad69999";
 
     @Test
     public void addOrg() {
@@ -101,6 +102,17 @@ public class JmsOrgServiceTest extends CommonBeforeTest{
     public void deleteOrg() {
         ActionResponse delete = os.orgs().deleteOrg(orgId);
         System.out.println(delete);
+    }
+
+
+    @Test
+    public void invitationOrgUser() {
+        OrgRoleBinding object = new OrgRoleBinding();
+        object.setId(orgIdTest);
+        object.setUser(userId);
+        object.setRole("00000000-0000-0000-0000-000000000005");
+        OrgRoleBinding objectBack = os.orgs().invitationOrgRole(object);
+        System.out.println(objectBack.getUser());
     }
 
 

@@ -2,12 +2,14 @@ package jms;
 
 import com.alibaba.fastjson.JSON;
 import com.jumpserver.sdk.v2.common.ActionResponse;
+import com.jumpserver.sdk.v2.model.Invite;
 import com.jumpserver.sdk.v2.model.User;
 import com.jumpserver.sdk.v2.model.UserGroup;
 import org.junit.Test;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,7 +18,7 @@ import java.util.List;
 public class JmsUserServiceTest extends CommonBeforeTest {
 
     private String userGroupId = "90b20128-c92c-4d69-9a18-68d9636b7ac1";
-    private String userId = "570cd13a-84dd-4710-9385-99ea3ad69999";
+    private String userId = "570cd13a-84dd-4710-9385-99ea3ad69998";
 
     @Test
     public void addUserGroups() {
@@ -60,6 +62,8 @@ public class JmsUserServiceTest extends CommonBeforeTest {
         user.setUsername("sdk");
         user.setEmail("sdk@fit2cloud.com");
         user.setSource("openid");
+
+        user.setSystem_roles(new String[]{});
         try {
             User user1 = os.users().create(user);
             System.out.println(user1.getId());
@@ -90,6 +94,7 @@ public class JmsUserServiceTest extends CommonBeforeTest {
         user.setName("sdkUpdate");
         user.setUsername("sdkUpdate");
         user.setEmail("sdk2@fit2cloud.com");
+        user.setGroups(new String[]{"f819acfe-5288-4a0f-9185-e80fd1b467b4"});
         User user1 = os.users().update(user);
         System.out.println(user1.getEmail());
         System.out.println(user1.getName());
@@ -142,9 +147,26 @@ public class JmsUserServiceTest extends CommonBeforeTest {
     @Test
     public void removeUser() {
         User user = new User();
-        String userId = "c29616dc-0e69-4b01-8862-c82731f6ceb7";
+        String userId = "570cd13a-84dd-4710-9385-99ea3ad69999";
         User delete = os.users().removeUser(userId, user);
         System.out.println(delete);
     }
+
+    @Test
+    public void invitationOrgUser() {
+        Invite invite = new Invite();
+        invite.setUsers(new ArrayList<String>(){{
+            add("570cd13a-84dd-4710-9385-99ea3ad69998");
+            add("570cd13a-84dd-4710-9385-99ea3ad69999");
+        }});
+        invite.setOrg_roles(new ArrayList<String>(){{
+            add("00000000-0000-0000-0000-000000000005");
+            add("00000000-0000-0000-0000-000000000007");
+        }});
+        Invite delete = os.users().invitationOrgUser(invite);
+        System.out.println(delete);
+    }
+
+
 
 }
