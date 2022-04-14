@@ -9,6 +9,8 @@ import com.jumpserver.sdk.v2.jumpserver.org.OrgService;
 import com.jumpserver.sdk.v2.jumpserver.org.OrgServiceImpl;
 import com.jumpserver.sdk.v2.jumpserver.permissions.PermissionService;
 import com.jumpserver.sdk.v2.jumpserver.permissions.PermissionServiceImpl;
+import com.jumpserver.sdk.v2.jumpserver.role.RoleService;
+import com.jumpserver.sdk.v2.jumpserver.role.RoleServiceImpl;
 import com.jumpserver.sdk.v2.jumpserver.users.UserService;
 import com.jumpserver.sdk.v2.jumpserver.users.UserServiceImpl;
 
@@ -26,6 +28,7 @@ public class DefaultAPIProvider implements APIProvider {
         bind(LunaService.class, LunaServiceImpl.class);
         bind(OrgService.class, OrgServiceImpl.class);
         bind(AssertsService.class, AssertsServiceImpl.class);
+        bind(RoleService.class, RoleServiceImpl.class);
     }
 
     @SuppressWarnings("unchecked")

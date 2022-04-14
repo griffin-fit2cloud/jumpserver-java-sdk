@@ -55,4 +55,7 @@ public final class ClientConstants {
     // luna
     public static final String LUNA_URL = "/luna/?login_to=";
 
+    // role
+    public static final String ROLES = BASE_URL + "/rbac/roles/";
+
 }

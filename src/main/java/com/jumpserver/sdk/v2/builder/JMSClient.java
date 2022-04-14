@@ -4,6 +4,7 @@ import com.jumpserver.sdk.v2.jumpserver.assets.AssertsService;
 import com.jumpserver.sdk.v2.jumpserver.luna.LunaService;
 import com.jumpserver.sdk.v2.jumpserver.org.OrgService;
 import com.jumpserver.sdk.v2.jumpserver.permissions.PermissionService;
+import com.jumpserver.sdk.v2.jumpserver.role.RoleService;
 import com.jumpserver.sdk.v2.jumpserver.users.UserService;
 
 import java.util.Map;
@@ -58,5 +59,11 @@ public interface JMSClient {
      * @return
      */
     Map getHeaders();
+
+    /**
+     * 角色信息
+     * @return
+     */
+    RoleService roles();
 
 }
